@@ -24,5 +24,15 @@ class MW_bot:
         password_in.send_keys(password)
         submit_button.click()
     
+    def select_stock(self, stock_sym):
+        input_bar = self.driver.find_element_by_xpath('/html/body/div[2]/div[3]/div[1]/div[1]/div/div[1]/input')
+        input_bar.send_keys(stock_sym)
+
+        sleep(2)
+        trade_button = self.driver.find_element_by_xpath('/html/body/div[2]/div[3]/div[1]/div[1]/div/div[2]/table/tbody/tr/td[4]/button')
+        trade_button.click()
+
 bot = MW_bot()
 bot.login('NO CORONA')
+sleep(2)
+bot.select_stock('nugt')
